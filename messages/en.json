@@ -1,0 +1,85 @@
+{
+  "nav": {
+    "home": "Home",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "docs": "Docs",
+    "signIn": "Sign In",
+    "getStarted": "Get Started"
+  },
+  "hero": {
+    "badge": "🚀 Open Source & Free",
+    "title": "Build Your SaaS",
+    "highlight": "in Days, Not Months",
+    "description": "Production-ready full-stack template with auth, billing, teams, API, dashboard, and more. Ship faster with everything pre-built.",
+    "cta": "Get Started Free",
+    "secondary": "View Documentation",
+    "noCreditCard": "No credit card required",
+    "mitLicense": "MIT License",
+    "typescript": "TypeScript"
+  },
+  "features": {
+    "title": "Everything You Need",
+    "description": "All the features you'd spend months building, ready to go.",
+    "auth": {
+      "title": "Authentication",
+      "description": "Email/password, OAuth (Google, GitHub), magic links, 2FA, and session management."
+    },
+    "billing": {
+      "title": "Billing & Subscriptions",
+      "description": "Stripe integration with plans, checkout, webhooks, and customer portal."
+    },
+    "teams": {
+      "title": "Team Management",
+      "description": "Create teams, invite members, manage roles (Owner, Admin, Member) with RBAC."
+    },
+    "api": {
+      "title": "Developer API",
+      "description": "RESTful API with key authentication, rate limiting, and auto-generated docs."
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Welcome back",
+      "description": "Sign in to your account to continue",
+      "email": "Email",
+      "password": "Password",
+      "forgotPassword": "Forgot password?",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up",
+      "orContinueWith": "Or continue with"
+    },
+    "register": {
+      "title": "Create an account",
+      "description": "Get started with your free account",
+      "name": "Name",
+      "email": "Email",
+      "password": "Password",
+      "createAccount": "Create Account",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "description": "Welcome back! Here's an overview of your account.",
+    "totalUsers": "Total Users",
+    "revenue": "Revenue",
+    "apiCalls": "API Calls",
+    "activeSessions": "Active Sessions"
+  },
+  "common": {
+    "loading": "Loading...",
+    "save": "Save",
+    "cancel": "Cancel",
+    "delete": "Delete",
+    "edit": "Edit",
+    "create": "Create",
+    "update": "Update",
+    "confirm": "Confirm",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous"
+  }
+}
