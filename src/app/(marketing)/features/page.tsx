@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { Zap, Shield, Users, CreditCard, Globe, Code, BarChart3, Bell, Lock, Database, TestTube, Docker } from "lucide-react";
+import { Zap, Shield, Users, CreditCard, Globe, Code, BarChart3, Bell, Lock, Database, FlaskConical, Server } from "lucide-react";
 
 const features = [
   { icon: Shield, title: "Authentication", description: "Email/password, OAuth (Google, GitHub), magic links, 2FA, session management with Better Auth." },
@@ -20,8 +20,8 @@ const features = [
   { icon: Bell, title: "Notifications", description: "In-app and email notifications with configurable preferences per notification type." },
   { icon: Lock, title: "Security", description: "CSRF, CSP headers, HSTS, rate limiting, input validation with Zod, timing-safe comparisons." },
   { icon: Database, title: "Database", description: "PostgreSQL with Drizzle ORM. Full schema with relations, enums, indexes, and seed script." },
-  { icon: TestTube, title: "Testing", description: "Vitest unit tests (118 tests), Playwright E2E tests (25 tests), Storybook stories." },
-  { icon: Docker, title: "DevOps", description: "Docker multi-stage build, docker-compose, GitHub Actions CI/CD, Vercel-ready." },
+  { icon: FlaskConical, title: "Testing", description: "Vitest unit tests (118 tests), Playwright E2E tests (25 tests), Storybook stories." },
+  { icon: Server, title: "DevOps", description: "Docker multi-stage build, docker-compose, GitHub Actions CI/CD, Vercel-ready." },
   { icon: Zap, title: "Extras", description: "Dark mode, command palette (⌘K), cookie consent, PWA manifest, OG images, sitemap." },
 ];
 
