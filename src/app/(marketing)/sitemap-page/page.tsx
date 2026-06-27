@@ -9,7 +9,6 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
-import { tools, categories } from "@/lib/tools";
 
 export default function SitemapPage() {
   return (
