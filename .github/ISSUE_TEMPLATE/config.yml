@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://saas-kit.dev/docs
+    about: Check the documentation before opening an issue
+  - name: Discord
+    url: https://discord.gg/saas-kit
+    about: Join our Discord for questions and discussions

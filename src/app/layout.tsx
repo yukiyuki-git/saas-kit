@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/shared/theme-provider";
+import { CookieConsent } from "@/components/shared/cookie-consent";
 import { Toaster } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import "./globals.css";
@@ -72,6 +73,7 @@ export default function RootLayout({
         >
           <TooltipProvider>
             {children}
+            <CookieConsent />
             <Toaster />
           </TooltipProvider>
         </ThemeProvider>
