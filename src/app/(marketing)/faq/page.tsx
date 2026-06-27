@@ -74,7 +74,7 @@ export default function FaqPage() {
           </p>
         </div>
         <div className="max-w-3xl mx-auto">
-          <Accordion type="single" collapsible>
+          <Accordion>
             {faqs.map((faq, i) => (
               <AccordionItem key={i} value={`item-${i}`}>
                 <AccordionTrigger>{faq.question}</AccordionTrigger>
