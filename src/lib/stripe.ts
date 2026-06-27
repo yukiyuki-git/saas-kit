@@ -1,8 +1,24 @@
 import Stripe from "stripe";
 
-export const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!, {
-  typescript: true,
-});
+let _stripe: Stripe | null = null;
+
+export function getStripe(): Stripe {
+  if (!_stripe) {
+    _stripe = new Stripe(process.env.STRIPE_SECRET_KEY || "sk_placeholder", {
+      typescript: true,
+    });
+  }
+  return _stripe;
+}
+
+// For backwards compatibility
+export const stripe = {
+  get subscriptions() { return getStripe().subscriptions; },
+  get checkout() { return getStripe().checkout; },
+  get billingPortal() { return getStripe().billingPortal; },
+  get customers() { return getStripe().customers; },
+  get webhooks() { return getStripe().webhooks; },
+};
 
 export const PLANS = {
   free: {

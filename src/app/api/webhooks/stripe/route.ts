@@ -4,9 +4,11 @@ import { db } from "@/lib/db";
 import { subscriptions, teams, invoices } from "@/lib/db/schema";
 import { eq } from "drizzle-orm";
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!);
+const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET || "";
 
-const webhookSecret = process.env.STRIPE_WEBHOOK_SECRET!;
+function getStripeInstance() {
+  return new Stripe(process.env.STRIPE_SECRET_KEY || "sk_placeholder");
+}
 
 export async function POST(req: NextRequest) {
   const body = await req.text();
@@ -15,7 +17,7 @@ export async function POST(req: NextRequest) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(body, signature, webhookSecret);
+    event = getStripeInstance().webhooks.constructEvent(body, signature, webhookSecret);
   } catch (err) {
     console.error("Webhook signature verification failed:", err);
     return NextResponse.json({ error: "Invalid signature" }, { status: 400 });
@@ -65,7 +67,7 @@ async function handleCheckoutCompleted(session: Stripe.Checkout.Session) {
   const teamId = session.metadata?.teamId;
   if (!teamId) return;
 
-  const subscription = await stripe.subscriptions.retrieve(
+  const subscription = await getStripeInstance().subscriptions.retrieve(
     session.subscription as string
   );
 
