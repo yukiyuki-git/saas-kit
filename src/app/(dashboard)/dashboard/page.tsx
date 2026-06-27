@@ -16,6 +16,7 @@ import {
   ArrowUpRight,
   ArrowDownRight,
 } from "lucide-react";
+import { RevenueChart } from "@/components/dashboard/charts";
 
 const stats = [
   {
@@ -109,11 +110,7 @@ export default function DashboardPage() {
             <CardDescription>Monthly revenue for the past year</CardDescription>
           </CardHeader>
           <CardContent>
-            <div className="h-[300px] flex items-center justify-center border-2 border-dashed rounded-lg">
-              <p className="text-muted-foreground">
-                Chart will render here with Recharts
-              </p>
-            </div>
+            <RevenueChart />
           </CardContent>
         </Card>
 
