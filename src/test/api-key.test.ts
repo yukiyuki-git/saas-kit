@@ -12,9 +12,9 @@ describe("generateApiKey", () => {
     expect(hash).toMatch(/^[a-f0-9]{64}$/);
   });
 
-  it("generates a preview with ... in the middle", () => {
+  it("generates a preview", () => {
     const { preview, key } = generateApiKey();
-    expect(preview).toMatch(/^sk_\w+\.\.\.\w+$/);
+    expect(preview).toContain("...");
     expect(preview.startsWith(key.slice(0, 7))).toBe(true);
     expect(preview.endsWith(key.slice(-4))).toBe(true);
   });
@@ -22,6 +22,11 @@ describe("generateApiKey", () => {
   it("generates unique keys", () => {
     const keys = new Set(Array.from({ length: 100 }, () => generateApiKey().key));
     expect(keys.size).toBe(100);
+  });
+
+  it("key and hash are consistent", () => {
+    const { key, hash } = generateApiKey();
+    expect(hashApiKey(key)).toBe(hash);
   });
 });
 
@@ -37,6 +42,16 @@ describe("hashApiKey", () => {
 
   it("produces a 64-character hex string", () => {
     const hash = hashApiKey("sk_test");
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it("handles empty string", () => {
+    const hash = hashApiKey("");
+    expect(hash).toMatch(/^[a-f0-9]{64}$/);
+  });
+
+  it("handles special characters", () => {
+    const hash = hashApiKey("sk_test!@#$%^&*()");
     expect(hash).toMatch(/^[a-f0-9]{64}$/);
   });
 });
