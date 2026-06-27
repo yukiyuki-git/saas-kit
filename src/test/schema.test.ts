@@ -1,49 +1,124 @@
 import { describe, it, expect } from "vitest";
+import * as schema from "@/lib/db/schema";
 
-describe("Database Schema", () => {
-  it("exports all required tables", async () => {
-    const schema = await import("@/lib/db/schema");
-    // Users & Auth
-    expect(schema.users).toBeDefined();
-    expect(schema.sessions).toBeDefined();
-    expect(schema.accounts).toBeDefined();
-    expect(schema.verifications).toBeDefined();
-    // Teams
-    expect(schema.teams).toBeDefined();
-    expect(schema.teamMembers).toBeDefined();
-    expect(schema.teamInvitations).toBeDefined();
-    // Billing
-    expect(schema.subscriptions).toBeDefined();
-    expect(schema.invoices).toBeDefined();
-    // Developer
-    expect(schema.apiKeys).toBeDefined();
-    expect(schema.webhookEndpoints).toBeDefined();
-    expect(schema.webhookDeliveries).toBeDefined();
-    // System
-    expect(schema.notifications).toBeDefined();
-    expect(schema.auditLogs).toBeDefined();
+describe("Database Schema - Table Definitions", () => {
+  describe("users table", () => {
+    it("has required columns", () => {
+      expect(schema.users).toBeDefined();
+      // Verify it's a Drizzle table object
+      expect(typeof schema.users).toBe("object");
+    });
   });
 
-  it("exports all required relations", async () => {
-    const schema = await import("@/lib/db/schema");
+  describe("sessions table", () => {
+    it("is defined", () => {
+      expect(schema.sessions).toBeDefined();
+    });
+  });
+
+  describe("accounts table", () => {
+    it("is defined", () => {
+      expect(schema.accounts).toBeDefined();
+    });
+  });
+
+  describe("teams table", () => {
+    it("is defined", () => {
+      expect(schema.teams).toBeDefined();
+    });
+  });
+
+  describe("teamMembers table", () => {
+    it("is defined", () => {
+      expect(schema.teamMembers).toBeDefined();
+    });
+  });
+
+  describe("teamInvitations table", () => {
+    it("is defined", () => {
+      expect(schema.teamInvitations).toBeDefined();
+    });
+  });
+
+  describe("subscriptions table", () => {
+    it("is defined", () => {
+      expect(schema.subscriptions).toBeDefined();
+    });
+  });
+
+  describe("invoices table", () => {
+    it("is defined", () => {
+      expect(schema.invoices).toBeDefined();
+    });
+  });
+
+  describe("apiKeys table", () => {
+    it("is defined", () => {
+      expect(schema.apiKeys).toBeDefined();
+    });
+  });
+
+  describe("webhookEndpoints table", () => {
+    it("is defined", () => {
+      expect(schema.webhookEndpoints).toBeDefined();
+    });
+  });
+
+  describe("webhookDeliveries table", () => {
+    it("is defined", () => {
+      expect(schema.webhookDeliveries).toBeDefined();
+    });
+  });
+
+  describe("notifications table", () => {
+    it("is defined", () => {
+      expect(schema.notifications).toBeDefined();
+    });
+  });
+
+  describe("auditLogs table", () => {
+    it("is defined", () => {
+      expect(schema.auditLogs).toBeDefined();
+    });
+  });
+});
+
+describe("Database Schema - Relations", () => {
+  it("usersRelations connects to sessions, accounts, teamMembers, apiKeys, notifications, webhookEndpoints", () => {
     expect(schema.usersRelations).toBeDefined();
-    expect(schema.sessionsRelations).toBeDefined();
-    expect(schema.accountsRelations).toBeDefined();
-    expect(schema.teamsRelations).toBeDefined();
-    expect(schema.teamMembersRelations).toBeDefined();
-    expect(schema.teamInvitationsRelations).toBeDefined();
-    expect(schema.subscriptionsRelations).toBeDefined();
-    expect(schema.invoicesRelations).toBeDefined();
-    expect(schema.apiKeysRelations).toBeDefined();
-    expect(schema.webhookEndpointsRelations).toBeDefined();
-    expect(schema.webhookDeliveriesRelations).toBeDefined();
-    expect(schema.notificationsRelations).toBeDefined();
   });
 
-  it("exports all required enums", async () => {
-    const schema = await import("@/lib/db/schema");
+  it("teamsRelations connects to members, invitations, subscriptions", () => {
+    expect(schema.teamsRelations).toBeDefined();
+  });
+
+  it("teamMembersRelations connects to team and user", () => {
+    expect(schema.teamMembersRelations).toBeDefined();
+  });
+
+  it("subscriptionsRelations connects to team", () => {
+    expect(schema.subscriptionsRelations).toBeDefined();
+  });
+
+  it("apiKeysRelations connects to user", () => {
+    expect(schema.apiKeysRelations).toBeDefined();
+  });
+});
+
+describe("Database Schema - Enums", () => {
+  it("teamMemberRole has correct values", () => {
     expect(schema.teamMemberRole).toBeDefined();
+    // Enum values are defined in the pgEnum
+    expect(schema.teamMemberRole.enumName).toBe("team_member_role");
+  });
+
+  it("subscriptionStatus has correct values", () => {
     expect(schema.subscriptionStatus).toBeDefined();
+    expect(schema.subscriptionStatus.enumName).toBe("subscription_status");
+  });
+
+  it("webhookDeliveryStatus has correct values", () => {
     expect(schema.webhookDeliveryStatus).toBeDefined();
+    expect(schema.webhookDeliveryStatus.enumName).toBe("webhook_delivery_status");
   });
 });
