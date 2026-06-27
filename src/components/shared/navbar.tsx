@@ -12,7 +12,8 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Menu, Zap, LogOut, Settings, User } from "lucide-react";
+import { Menu, Zap, LogOut, Settings, User, Search } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 interface NavbarProps {
   user?: {
@@ -52,7 +53,8 @@ export function Navbar({ user }: NavbarProps) {
           </nav>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-2">
+          <ThemeToggle />
           {user ? (
             <DropdownMenu>
               <DropdownMenuTrigger render={<Button variant="ghost" className="relative h-8 w-8 rounded-full" />}>
