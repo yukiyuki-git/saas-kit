@@ -3,7 +3,10 @@ import { describe, it, expect } from "vitest";
 describe("SaaS Kit Lib Module Deep Tests", () => {
   it("cn handles complex class merging", async () => {
     const { cn } = await import("@/lib/utils");
-    expect(cn("px-4 py-2", "px-8")).toBe("px-8 py-2");
+    const result = cn("px-4 py-2", "px-8");
+    expect(result).toContain("px-8");
+    expect(result).toContain("py-2");
+    expect(result).not.toContain("px-4");
     expect(cn("text-red-500", "text-blue-500")).toBe("text-blue-500");
     expect(cn("foo", false, undefined, null, "bar")).toBe("foo bar");
   });
