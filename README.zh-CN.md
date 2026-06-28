@@ -4,7 +4,7 @@
 
 一个完整的、开箱即用的 SaaS 模板，使用现代技术栈构建。数天内即可发布你的 SaaS 产品。
 
-**[🇨🇳 中文文档](./README.zh-CN.md)** | **[📖 English](./README.md)**
+**[🇨🇳 中文文档](./README.zh-CN.md)** | **[📖 English](./README.md)** | **[🔧 开发文档](./DEVELOPMENT.md)**
 
 ---
 

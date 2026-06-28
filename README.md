@@ -4,7 +4,7 @@
 
 A complete, production-ready SaaS template built with modern technologies. Ship your SaaS product in days, not months.
 
-**[🇨🇳 中文文档](./README.zh-CN.md)** | **[📖 English](./README.md)**
+**[🇨🇳 中文文档](./README.zh-CN.md)** | **[📖 English](./README.md)** | **[🔧 开发文档](./DEVELOPMENT.md)**
 
 ---
 
