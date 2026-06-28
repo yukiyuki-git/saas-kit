@@ -36,18 +36,18 @@ describe("SaaS Kit Comprehensive Final", () => {
     expect(emails.length).toBe(6);
   });
 
-  it("has 3 Storybook stories", async () => {
+  it("has 16 Storybook stories", async () => {
     const fs = await import("fs");
     const stories = fs.readdirSync("src/components/ui")
       .filter((f: string) => f.endsWith(".stories.tsx"));
-    expect(stories.length).toBe(3);
+    expect(stories.length).toBe(16);
   });
 
-  it("has 3 E2E test files", async () => {
+  it("has 5 E2E test files", async () => {
     const fs = await import("fs");
     const e2e = fs.readdirSync("e2e")
       .filter((f: string) => f.endsWith(".spec.ts"));
-    expect(e2e.length).toBe(3);
+    expect(e2e.length).toBe(5);
   });
 
   it("has translation files", async () => {
