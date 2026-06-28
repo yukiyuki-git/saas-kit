@@ -4,7 +4,7 @@
 
 A complete, production-ready SaaS template built with modern technologies. Ship your SaaS product in days, not months.
 
-**生产级全栈 SaaS 模板** — 使用现代技术构建，数天内即可发布你的 SaaS 产品。
+**[🇨🇳 中文文档](./README.zh-CN.md)** | **[📖 English](./README.md)**
 
 ---
 
